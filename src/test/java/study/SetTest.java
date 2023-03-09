@@ -36,4 +36,17 @@ public class SetTest {
         assertThat(numbers.contains(3)).isTrue();
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3})
+    void containsRefactor(int input) {
+        assertTrue(numbers.contains(input));
+    }
+
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "  "})
+    void isBlank_ShouldReturnTrueForNullOrBlankStrings(String input) {
+        assertTrue(StringUtils.isBlank(input));
+    }
+
 }
