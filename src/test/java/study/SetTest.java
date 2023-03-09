@@ -29,4 +29,11 @@ public class SetTest {
         assertThat(numberSize).isEqualTo(3);
     }
 
+    @Test
+    void contains() {
+        assertThat(numbers.contains(1)).isTrue();
+        assertThat(numbers.contains(2)).isTrue();
+        assertThat(numbers.contains(3)).isTrue();
+    }
+
 }
