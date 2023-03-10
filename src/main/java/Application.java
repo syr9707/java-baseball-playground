@@ -8,15 +8,22 @@ public class Application {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         ArrayList<Integer> computerNum = new ArrayList<>();
-        while(computerNum.size() < 3) {
-            int num = (int)(Math.random() * 9) + 1;
-            if(!computerNum.contains(num)) computerNum.add(num);
-        }
+        computerNum = generateNumber();
 
         System.out.print("숫자를 입력해 주세요 : ");
         String numStr = br.readLine();
         judgeNumber(numStr, computerNum);
 
+    }
+
+    public static ArrayList<Integer> generateNumber() {
+        ArrayList<Integer> computerNum = new ArrayList<>();
+        while(computerNum.size() < 3) {
+            int num = (int)(Math.random() * 9) + 1;
+            if(!computerNum.contains(num)) computerNum.add(num);
+        }
+
+        return computerNum;
     }
 
     public static void judgeNumber(String numStr, ArrayList<Integer> computerNum) {
@@ -51,4 +58,6 @@ public class Application {
         System.out.println("낫싱");
 
     }
+
+
 }
