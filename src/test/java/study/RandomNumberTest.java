@@ -1,2 +1,4 @@
-package study;public class RandomNumberTest {
+package study;
+
+public class RandomNumberTest {
 }
