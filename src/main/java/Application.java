@@ -31,4 +31,24 @@ public class Application {
         printResult(countStrike, countBall);
     }
 
+    public static void printResult(int countStrike, int countBall) {
+
+        if(countStrike != 0 && countBall != 0) {
+            System.out.println(countBall + "볼 " + countStrike + "스트라이크");
+            return;
+        }
+
+        if(countStrike != 0 && countBall == 0) {
+            System.out.println(countStrike + "스트라이크");
+            return;
+        }
+
+        if(countStrike == 0 && countBall != 0) {
+            System.out.println(countBall + "볼 ");
+            return;
+        }
+
+        System.out.println("낫싱");
+
+    }
 }
