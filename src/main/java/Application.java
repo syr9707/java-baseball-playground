@@ -4,15 +4,27 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Application {
+
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        ArrayList<Integer> computerNum = new ArrayList<>();
-        computerNum = generateNumber();
+        ArrayList<Integer> computerNum = generateNumber();
+        System.out.println(computerNum);
 
-        System.out.print("숫자를 입력해 주세요 : ");
-        String numStr = br.readLine();
-        judgeNumber(numStr, computerNum);
+        boolean replay = false;
+        while (true) {
+            System.out.print("숫자를 입력해 주세요 : ");
+            String numStr = br.readLine();
+            boolean judge = judgeNumber(numStr, computerNum);
+
+            if(judge) {
+                replay = replay();
+                if (replay) return;
+                computerNum = generateNumber();
+                System.out.println(computerNum);
+            }
+        }
 
     }
 
@@ -26,7 +38,7 @@ public class Application {
         return computerNum;
     }
 
-    public static void judgeNumber(String numStr, ArrayList<Integer> computerNum) {
+    public static boolean judgeNumber(String numStr, ArrayList<Integer> computerNum) {
         int countStrike = 0;
         int countBall = 0;
 
@@ -36,6 +48,10 @@ public class Application {
         }
         countBall = countBall - countStrike;
         printResult(countStrike, countBall);
+
+        if(countStrike == 3) return true;
+
+        return false;
     }
 
     public static void printResult(int countStrike, int countBall) {
