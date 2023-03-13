@@ -13,14 +13,14 @@ public class Application {
         System.out.println(computerNum);
 
         boolean replay = false;
-        while (true) {
+        while (replay != true) {
             System.out.print("숫자를 입력해 주세요 : ");
             String numStr = br.readLine();
             boolean judge = judgeNumber(numStr, computerNum);
 
             if(judge) {
                 replay = replay();
-                if (replay) return;
+//                if (replay) return;
                 computerNum = generateNumber();
                 System.out.println(computerNum);
             }
